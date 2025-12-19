@@ -1,11 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+
+    <!-- reuse the same style -->
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
 </head>
 <body>
-    <h3> Test </h3>
+
+<div class="page">
+    <div class="glass">
+
+        <h2>Welcome 👋</h2>
+
+        {% if user.is_authenticated %}
+            <p class="message">
+                User <strong>{{ user.username }}</strong> has successfully logged in ✅
+            </p>
+        {% else %}
+            <p class="message">
+                You are not logged in.
+            </p>
+        {% endif %}
+
+    </div>
+</div>
+
 </body>
 </html>
