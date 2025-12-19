@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: url("bg.jpg") center / cover no-repeat;
+}
+
+/* Glass box */
+.glass {
+  width: 380px;
+  padding: 32px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(14px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+  color: white;
+}
+
+.glass h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+/* Inputs */
+.input {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input input {
+  width: 100%;
+  padding: 14px 44px 14px 18px;
+
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.35);
+
+  background: rgba(255,255,255,0.18);
+  color: white;
+  outline: none;
+}
+
+.input input::placeholder {
+  color: #e0e0e0;
+}
+
+.input i {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #eee;
+}
+
+/* Terms */
+.terms {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin: 18px 0 22px;
+}
+
+.terms span {
+  margin-left: 8px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+
+  background: white;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+}

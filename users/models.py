@@ -5,7 +5,7 @@ from .managers import UserManager
 
 
 class User(AbstractUser):
-    email = models.EmailField(unique=True, blank=True, null=True)
+    email = models.EmailField(unique=True)
     
     objects = UserManager()
 
