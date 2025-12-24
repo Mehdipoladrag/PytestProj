@@ -4,6 +4,7 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 class TestLogin:
+    # Loading Page 
     def test_login_page_loads(self, client):
         url = reverse("users:login")
         response = client.get(url)
@@ -11,14 +12,14 @@ class TestLogin:
         assert response.status_code == 200
         assert b"Login" in response.content
 
+    # Success Login
     def test_login_success(self, client, django_user_model):
-        user = django_user_model.objects.create_user(
+        django_user_model.objects.create_user(
             username="testuser",
             password="StrongPass123"
         )
 
-        url = reverse("users:login")
-        response = client.post(url, {
+        response = client.post(reverse("users:login"), {
             "username": "testuser",
             "password": "StrongPass123",
         })
@@ -26,6 +27,7 @@ class TestLogin:
         assert response.status_code == 302
         assert response.url == reverse("homepage")
         assert "_auth_user_id" in client.session
+
 
     def test_login_wrong_password(self, client, django_user_model):
         django_user_model.objects.create_user(
