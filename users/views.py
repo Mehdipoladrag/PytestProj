@@ -3,7 +3,7 @@ from django.views.generic import CreateView
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView as DjangoLoginView, LogoutView as DjangoLogoutView
 
-from .forms import SignupForm
+from .forms import SignupForm, LoginForm
 from .models import User
 
 
@@ -21,11 +21,9 @@ class SignupView(CreateView):
 
 class LoginView(DjangoLoginView):
     template_name = "users/login.html"
+    authentication_form = LoginForm
     redirect_authenticated_user = True
     success_url = reverse_lazy("homepage")
-
-    def get_success_url(self):
-        return self.success_url
 
 
 class LogoutView(DjangoLogoutView):

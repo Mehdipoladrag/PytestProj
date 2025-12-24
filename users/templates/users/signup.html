@@ -16,36 +16,34 @@
 
     <h2>registration</h2>
 
-    <form method="post" novalidate>
-      {% csrf_token %}
+    <form method="post">
+  {% csrf_token %}
 
-      <div class="input">
-        {{ form.username }}
-        <i class="fa fa-user"></i>
-      </div>
+  {{ form.non_field_errors }}
 
-      <div class="input">
-        {{ form.email }}
-        <i class="fa fa-envelope"></i>
-      </div>
+  <div class="input">
+    {{ form.username }}
+    {{ form.username.errors }}
+  </div>
 
-      <div class="input">
-        {{ form.password1 }}
-        <i class="fa fa-lock"></i>
-      </div>
+  <div class="input">
+    {{ form.email }}
+    {{ form.email.errors }}
+  </div>
 
-      <div class="input">
-        {{ form.password2 }}
-        <i class="fa fa-lock"></i>
-      </div>
+  <div class="input">
+    {{ form.password1 }}
+    {{ form.password1.errors }}
+  </div>
 
-      <div class="terms">
-        <input type="checkbox">
-        <span>I agree to the terms & conditions</span>
-      </div>
+  <div class="input">
+    {{ form.password2 }}
+    {{ form.password2.errors }}
+  </div>
 
-      <button type="submit">Register</button>
-    </form>
+  <button type="submit">Register</button>
+</form>
+
 
   </div>
 </div>

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-
     <link rel="stylesheet" href="{% static 'signup.css' %}">
 </head>
 <body>
@@ -13,20 +12,29 @@
     <div class="glass">
         <h2>Login</h2>
 
-        <form method="post" novalidate>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
+        {% if user.is_authenticated %}
+            <p>You are logged in as {{ user.username }}</p>
 
-            <div class="input">
-                {{ form.username }}
-            </div>
+            <form method="post" action="{% url 'users:logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
 
-            <div class="input">
-                {{ form.password }}
-            </div>
+                <div class="input">
+                    {{ form.username }}
+                </div>
 
-            <button type="submit">Login</button>
-        </form>
+                <div class="input">
+                    {{ form.password }}
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+        {% endif %}
     </div>
 </div>
 

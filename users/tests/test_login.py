@@ -40,4 +40,4 @@ class TestLogin:
         })
 
         assert response.status_code == 200
-        assert b"invalid" in response.content.lower()
+        assert b"please enter a correct username and password" in response.content.lower()

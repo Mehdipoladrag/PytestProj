@@ -19,10 +19,19 @@
             <p class="message">
                 User <strong>{{ user.username }}</strong> has successfully logged in ✅
             </p>
+
+            <form method="post" action="{% url 'users:logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
         {% else %}
             <p class="message">
                 You are not logged in.
             </p>
+
+            <a href="{% url 'users:login' %}">
+                <button type="button">Login</button>
+            </a>
         {% endif %}
 
     </div>
